@@ -19,7 +19,7 @@ public class SingletonFactory {
         return StaticSingleton.getInstance();
     }
 
-    public Singleton create(String code) {
+    public Singleton create(String code) throws IllegalArgumentException {
         return this.create(transformer.transform(code));
     }
 

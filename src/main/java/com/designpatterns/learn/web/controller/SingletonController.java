@@ -24,8 +24,12 @@ public class SingletonController {
 
     @GetMapping("/{code}")
     public ResponseEntity<DesignPattern> getSingleton(@PathVariable("code") String code) {
-        DesignPattern dp = designPatternService.requestDesignPattern(DesignPatternType.SINGLETON, code);
-        return new ResponseEntity<>(dp, HttpStatus.OK);
+        try {
+            DesignPattern dp = designPatternService.requestDesignPattern(DesignPatternType.SINGLETON, code);
+            return new ResponseEntity<>(dp, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 }

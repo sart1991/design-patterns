@@ -16,11 +16,11 @@ public class DesignPatternService {
         this.singletonFactory = singletonFactory;
     }
 
-    public DesignPattern requestDesignPattern(DesignPatternType type, String code) {
+    public DesignPattern requestDesignPattern(DesignPatternType type, String code) throws IllegalArgumentException {
         return this.requestSingleton(code);
     }
 
-    public DesignPattern requestSingleton(String code) {
+    public DesignPattern requestSingleton(String code) throws IllegalArgumentException {
         return singletonFactory.create(code);
     }
 
