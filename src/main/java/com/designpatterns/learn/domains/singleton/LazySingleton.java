@@ -15,7 +15,7 @@ public class LazySingleton implements Singleton {
 
     @Override
     public String describe() {
-        return "Creational -> LazySingleton";
+        return "Creational -> " + LazySingleton.class.getSimpleName();
     }
 
     @Override

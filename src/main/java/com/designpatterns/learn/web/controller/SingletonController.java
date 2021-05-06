@@ -1,6 +1,7 @@
 package com.designpatterns.learn.web.controller;
 
 import com.designpatterns.learn.domains.DesignPattern;
+import com.designpatterns.learn.domains.DesignPatternDomain;
 import com.designpatterns.learn.domains.DesignPatternType;
 import com.designpatterns.learn.services.DesignPatternService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +24,12 @@ public class SingletonController {
     }
 
     @GetMapping("/{code}")
-    public ResponseEntity<DesignPattern> getSingleton(@PathVariable("code") String code) {
+    public ResponseEntity<DesignPatternDomain> getSingleton(@PathVariable("code") String code) {
         try {
             DesignPattern dp = designPatternService.requestDesignPattern(DesignPatternType.SINGLETON, code);
-            return new ResponseEntity<>(dp, HttpStatus.OK);
+            return ResponseEntity.ok(new DesignPatternDomain(dp));
         } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 

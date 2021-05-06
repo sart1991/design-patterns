@@ -15,8 +15,8 @@ public class SingletonFactory {
 
     public Singleton create(SingletonType type) {
         if (SingletonType.STATIC == type) return StaticSingleton.getInstance();
-        if (SingletonType.LAZY == type) return StaticSingleton.getInstance();
-        return StaticSingleton.getInstance();
+        if (SingletonType.LAZY == type) return LazySingleton.getInstance();
+        return ThreadSafeSingleton.getInstance();
     }
 
     public Singleton create(String code) throws IllegalArgumentException {

@@ -12,7 +12,7 @@ public class StaticSingleton implements Singleton {
 
     @Override
     public String describe() {
-        return "Creational -> StaticSingleton";
+        return "Creational -> " + StaticSingleton.class.getSimpleName();
     }
 
     @Override
