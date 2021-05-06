@@ -3,6 +3,8 @@ package com.designpatterns.learn.domains.singleton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class SingletonFactory {
 
@@ -19,8 +21,14 @@ public class SingletonFactory {
         return ThreadSafeSingleton.getInstance();
     }
 
-    public Singleton create(String code) throws IllegalArgumentException {
-        return this.create(transformer.transform(code));
+    public Optional<Singleton> create(String code) {
+        Singleton s = null;
+        try {
+            s = this.create(transformer.transform(code));
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error, IllegalArgumentException creating Singleton");
+        }
+        return Optional.ofNullable(s);
     }
 
 }
