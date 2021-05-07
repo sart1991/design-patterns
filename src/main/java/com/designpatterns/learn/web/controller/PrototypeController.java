@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/builder")
-public class BuilderController {
+@RequestMapping("/prototype")
+public class PrototypeController {
 
     @Autowired
     private final DesignPatternService designPatternService;
 
-    public BuilderController(DesignPatternService designPatternService) {
+    public PrototypeController(DesignPatternService designPatternService) {
         this.designPatternService = designPatternService;
     }
 
     @GetMapping
-    public ResponseEntity<DesignPatternDomain> getBuilder() {
-        Optional<DesignPattern> dp = designPatternService.requestBuilder();
+    public ResponseEntity<DesignPatternDomain> getPrototype() {
+        Optional<DesignPattern> dp = designPatternService.requestPrototype();
         return ResponseEntity.of(DesignPatternDomain.of(dp));
     }
 
