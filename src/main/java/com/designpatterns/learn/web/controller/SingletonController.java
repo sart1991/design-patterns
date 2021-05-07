@@ -1,12 +1,9 @@
 package com.designpatterns.learn.web.controller;
 
-import com.designpatterns.learn.domains.DesignPattern;
 import com.designpatterns.learn.domains.DesignPatternDomain;
-import com.designpatterns.learn.domains.DesignPatternType;
-import com.designpatterns.learn.domains.singleton.Singleton;
+import com.designpatterns.learn.domains.creational.singleton.Singleton;
 import com.designpatterns.learn.services.DesignPatternService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

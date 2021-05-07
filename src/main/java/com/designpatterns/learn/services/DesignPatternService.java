@@ -1,12 +1,11 @@
 package com.designpatterns.learn.services;
 
 import com.designpatterns.learn.domains.DesignPattern;
-import com.designpatterns.learn.domains.DesignPatternType;
-import com.designpatterns.learn.domains.builder.RegularBuiltObject;
-import com.designpatterns.learn.domains.factory.*;
-import com.designpatterns.learn.domains.prototype.ProtoItem;
-import com.designpatterns.learn.domains.singleton.Singleton;
-import com.designpatterns.learn.domains.singleton.SingletonFactory;
+import com.designpatterns.learn.domains.creational.builder.RegularBuiltObject;
+import com.designpatterns.learn.domains.creational.factory.*;
+import com.designpatterns.learn.domains.creational.prototype.ProtoItem;
+import com.designpatterns.learn.domains.creational.singleton.Singleton;
+import com.designpatterns.learn.domains.creational.singleton.SingletonFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
