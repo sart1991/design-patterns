@@ -3,6 +3,7 @@ package com.designpatterns.learn.services;
 import com.designpatterns.learn.domains.DesignPattern;
 import com.designpatterns.learn.domains.DesignPatternType;
 import com.designpatterns.learn.domains.builder.RegularBuiltObject;
+import com.designpatterns.learn.domains.factory.*;
 import com.designpatterns.learn.domains.prototype.ProtoItem;
 import com.designpatterns.learn.domains.singleton.Singleton;
 import com.designpatterns.learn.domains.singleton.SingletonFactory;
@@ -36,6 +37,19 @@ public class DesignPatternService {
         System.out.println(pi.getListStorageId());
         System.out.println(pi.getTextStorageId());
         return Optional.of(ProtoItem.Factory.create());
+    }
+
+    public Optional<DesignPattern> requestFactory(String code) {
+        if (code.equals("regular")) {
+            ChapterFactory factory = new ChapterFactory();
+            factory.createChapter(ChapterTypeEnum.CONTENT);
+            return Optional.of(factory);
+        } else if (code.equals("abstract")) {
+            BookFactory factory = BookFactory.createFactory(BookGenreEnum.SCIENCE);
+            factory.buildBook("The universe in a nutshell");
+            return Optional.of(factory);
+        }
+        return Optional.empty();
     }
 
 }
