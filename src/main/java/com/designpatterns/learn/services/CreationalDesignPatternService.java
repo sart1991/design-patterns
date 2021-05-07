@@ -12,12 +12,12 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class DesignPatternService {
+public class CreationalDesignPatternService {
 
     @Autowired
     private final SingletonFactory singletonFactory;
 
-    public DesignPatternService(SingletonFactory singletonFactory) {
+    public CreationalDesignPatternService(SingletonFactory singletonFactory) {
         this.singletonFactory = singletonFactory;
     }
 

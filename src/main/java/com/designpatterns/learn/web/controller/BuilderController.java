@@ -2,7 +2,7 @@ package com.designpatterns.learn.web.controller;
 
 import com.designpatterns.learn.domains.DesignPattern;
 import com.designpatterns.learn.domains.DesignPatternDomain;
-import com.designpatterns.learn.services.DesignPatternService;
+import com.designpatterns.learn.services.CreationalDesignPatternService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,15 +16,15 @@ import java.util.Optional;
 public class BuilderController {
 
     @Autowired
-    private final DesignPatternService designPatternService;
+    private final CreationalDesignPatternService creationalDesignPatternService;
 
-    public BuilderController(DesignPatternService designPatternService) {
-        this.designPatternService = designPatternService;
+    public BuilderController(CreationalDesignPatternService creationalDesignPatternService) {
+        this.creationalDesignPatternService = creationalDesignPatternService;
     }
 
     @GetMapping
     public ResponseEntity<DesignPatternDomain> getBuilder() {
-        Optional<DesignPattern> dp = designPatternService.requestBuilder();
+        Optional<DesignPattern> dp = creationalDesignPatternService.requestBuilder();
         return ResponseEntity.of(DesignPatternDomain.of(dp));
     }
 
